@@ -31,7 +31,7 @@ class TempApplicationsSerializer(serializers.ModelSerializer):
     guardians_years_of_residency = serializers.CharField(write_only=True, allow_blank=True, required=False)
     guardians_voters_issued_at = serializers.CharField(write_only=True, allow_blank=True, required=False)
     guardians_voters_issuance_date = serializers.CharField(write_only=True, allow_blank=True, required=False)
-    
+
     gender = serializers.PrimaryKeyRelatedField(
         queryset=Gender.objects.all(),
         write_only=True
