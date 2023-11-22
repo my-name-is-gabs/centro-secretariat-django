@@ -16,7 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'easyaudit',
     'django_celery_results',
     'django_celery_beat',
+    'bootstrapform',
+    'survey',
     # local
     "index",
     "demographics",
@@ -124,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Manila"
 
 USE_I18N = True
 
@@ -253,3 +255,7 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "Centro Secretariat"
 EMAIL_HOST_USER = os.environ.get("CAPSTONE_EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("CAPSTONE_EMAIL_HOST_PASSWORD")
+
+CSV_DIRECTORY = Path("survey_reports/csv/")
+TEX_DIRECTORY = Path("survey_reports/tex/")
+# TEX_CONFIGURATION_FILE = os.path.join(ROOT, "docs", "tex_conf.yaml")

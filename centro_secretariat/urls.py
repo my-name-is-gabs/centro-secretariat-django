@@ -11,6 +11,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     # Index / Home / Root AND Scholarship Submission / Retrieval / Tracking
     path('', include('index.urls')),
+    
+    # Path for Head Scholarship Officer as a normal user
+    path('head/', include('head.urls')),
+    
     # Path for Head Scholarship Officer as a SuperUser
     path('admin/', admin.site.urls),
     
@@ -21,7 +25,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-]
+    path('survey/', include('survey.urls')),
+]   
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
